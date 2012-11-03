@@ -1,9 +1,12 @@
 package org.michajlo.jawnitor.parser
 
-import org.scalatest.FunSpec
-import org.michajlo.jawnitor.ast.JawnitorAST._
-import javax.management.ObjectName
 import java.io.StringReader
+
+import org.michajlo.jawnitor.ast.JawnitorAST.AttrDesc
+import org.michajlo.jawnitor.ast.JawnitorAST.MBeanDesc
+import org.scalatest.FunSpec
+
+import javax.management.ObjectName
 
 class JawnitorParserTest extends FunSpec {
 
@@ -37,11 +40,27 @@ class JawnitorParserTest extends FunSpec {
     )
 
     it ("must properly parse from a String") {
-      assert(expected === JawnitorParser.parse(body).get)
+      assert(expected === JawnitorParser.parse(body))
     }
 
     it ("must properly parse from a Reader") {
-      assert(expected === JawnitorParser.parse(new StringReader(body)).get)
+      assert(expected === JawnitorParser.parse(new StringReader(body)))
+    }
+  }
+
+  describe ("for bad input") {
+    val body = "mbeans{blah}"
+
+    it ("must throw an IllegalArgumentException when parsin a String") {
+      intercept[IllegalArgumentException] {
+        JawnitorParser.parse(body)
+      }
+    }
+
+    it ("must throw an IllegalArgumentException when parsin a Reader") {
+      intercept[IllegalArgumentException] {
+        JawnitorParser.parse(new StringReader(body))
+      }
     }
   }
 }

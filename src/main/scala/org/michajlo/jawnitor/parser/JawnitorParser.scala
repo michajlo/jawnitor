@@ -3,6 +3,7 @@ package org.michajlo.jawnitor.parser
 import scala.util.parsing.combinator.RegexParsers
 import org.michajlo.jawnitor.ast.JawnitorAST._
 import javax.management.ObjectName
+import java.io.Reader
 
 /**
  * Parser defining the DSL for configuring MBeans to watch.
@@ -35,7 +36,7 @@ object JawnitorParser extends RegexParsers {
   /**
    * Parse an MBean declaration string
    *
-   * @param the string declarin the MBeans
+   * @param the string declaring the MBeans
    *
    * @return the ParseResult[List[MBeanDesc]] of the parsing.
    *         On success the result will contain a list of all
@@ -43,6 +44,16 @@ object JawnitorParser extends RegexParsers {
    */
   def parse(str: String): ParseResult[List[MBeanDesc]] = parseAll(mbeans, str)
 
+  /**
+   * Parse an MBean declaration file
+   *
+   * @param the reader for the resource declarin the MBeans
+   *
+   * @return the ParseResult[List[MBeanDesc]] of the parsing.
+   *         On success the result will contain a list of all
+   *         MBeanDescs parsed.
+   */
+  def parse(reader: Reader): ParseResult[List[MBeanDesc]] = parseAll(mbeans, reader)
 
   private def objName: Parser[String] = "[a-zA-Z0-9.]+:[a-zA-Z][a-zA-Z0-9/;,=_.*-]+".r
   private def attrName: Parser[String] = "[a-zA-Z0-9_]+".r

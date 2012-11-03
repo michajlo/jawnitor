@@ -3,10 +3,11 @@ package org.michajlo.jawnitor.parser
 import org.scalatest.FunSpec
 import org.michajlo.jawnitor.ast.JawnitorAST._
 import javax.management.ObjectName
+import java.io.StringReader
 
 class JawnitorParserTest extends FunSpec {
 
-  it ("must properly parse") {
+  describe ("for a well formed input") {
     val body = """
       mbeans {
         org.michajlo.jawnitor:name=SomeMonitor,type=* {
@@ -20,7 +21,6 @@ class JawnitorParserTest extends FunSpec {
         }
       }
       """
-
     val expected = List(
       MBeanDesc(new ObjectName("org.michajlo.jawnitor:name=SomeMonitor,type=*"),
         List(
@@ -36,6 +36,12 @@ class JawnitorParserTest extends FunSpec {
       )
     )
 
-    assert(expected === JawnitorParser.parse(body).get)
+    it ("must properly parse from a String") {
+      assert(expected === JawnitorParser.parse(body).get)
+    }
+
+    it ("must properly parse from a Reader") {
+      assert(expected === JawnitorParser.parse(new StringReader(body)).get)
+    }
   }
 }

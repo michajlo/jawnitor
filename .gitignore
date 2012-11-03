@@ -1,5 +1,6 @@
-*.class
-*.log
+.project
+.classpath
+.cache
 
 # sbt specific
 dist/*

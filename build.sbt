@@ -15,5 +15,5 @@ resolvers += "Sonatype OSS Releases" at
 
 libraryDependencies += "org.scalatest" %% "scalatest" % "1.8" % "test"
 
-libraryDependencies += "org.mockito" % "mockito-core" % "1.9.5"
+libraryDependencies += "org.mockito" % "mockito-core" % "1.9.5" % "test"
 

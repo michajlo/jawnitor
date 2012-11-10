@@ -1,6 +1,8 @@
+# eclipse stuff
 .project
 .classpath
 .cache
+.settings
 
 # sbt specific
 dist/*

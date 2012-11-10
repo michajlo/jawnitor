@@ -1,10 +1,14 @@
 name := "jawnitor"
 
+organization := "org.michajlo"
+
 version := "0.1-SNAPSHOT"
 
 scalaVersion := "2.9.2"
 
 scalacOptions += "-deprecation"
+
+publishMavenStyle := true
 
 unmanagedSourceDirectories in Compile <<= (scalaSource in Compile)(Seq(_))
 

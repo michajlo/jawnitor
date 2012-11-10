@@ -10,8 +10,6 @@ unmanagedSourceDirectories in Compile <<= (scalaSource in Compile)(Seq(_))
 
 unmanagedSourceDirectories in Test <<= (scalaSource in Test)(Seq(_))
 
-EclipseKeys.createSrc := EclipseCreateSrc.Default + EclipseCreateSrc.Resource
-
 resolvers += "Sonatype OSS Releases" at
   "https://oss.sonatype.org/content/repositories/releases/"
 

@@ -2,6 +2,8 @@
 
 Because DSLs are fun and MBeans aren't
 
+[![Build Status](https://travis-ci.org/michajlo/jawnitor.png)](https://travis-ci.org/michajlo/jawnitor)
+
 ## Theory of operation
 
 The general idea here is you define some MBeans and their attributes

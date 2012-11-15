@@ -1,8 +1,6 @@
-# jawnitor
+# jawnitor [![Build Status](https://travis-ci.org/michajlo/jawnitor.png)](https://travis-ci.org/michajlo/jawnitor)
 
 Because DSLs are fun and MBeans aren't
-
-[![Build Status](https://travis-ci.org/michajlo/jawnitor.png)](https://travis-ci.org/michajlo/jawnitor)
 
 ## Theory of operation
 

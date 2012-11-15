@@ -30,9 +30,6 @@ output on that.
 
 ## TODOs
 
-Clearly this isn't done yet, but for a minimum viable product, not
-too much else is required. I'm sure more stuff will pop up, but
-generally, only the following are probably necessary:
-
-  - define and implement main entry point
-  - fill in output stuff
+Clearly this isn't done yet, but minimum viable product has been
+achieved, to some degree. From here standardization and hardening is
+the name of the game.

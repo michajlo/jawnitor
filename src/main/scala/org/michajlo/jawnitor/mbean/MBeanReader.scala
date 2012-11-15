@@ -1,12 +1,27 @@
 package org.michajlo.jawnitor.mbean
 
+import java.lang.management.ManagementFactory
+
+import org.michajlo.jawnitor.ast.JawnitorAST.MBeanDesc
+
+import javax.management.AttributeNotFoundException
+import javax.management.InstanceNotFoundException
+import javax.management.MBeanException
 import javax.management.MBeanServer
 import javax.management.ObjectName
-import org.michajlo.jawnitor.ast.JawnitorAST._
-import javax.management.MBeanException
-import javax.management.AttributeNotFoundException
 import javax.management.ReflectionException
-import javax.management.InstanceNotFoundException
+
+object MBeanReader {
+
+  /**
+   * Create an MBeanReader using the Platform MBeanServer
+   */
+  def apply(): MBeanReader = {
+    // TODO: this may not always be the server we want...
+    val mbeanServer = ManagementFactory.getPlatformMBeanServer
+    new MBeanReader(mbeanServer)
+  }
+}
 
 /**
  * Service class for reading metrics off of an mbeanServer

@@ -33,3 +33,7 @@ output on that.
 Clearly this isn't done yet, but minimum viable product has been
 achieved, to some degree. From here standardization and hardening is
 the name of the game.
+
+## License
+
+[Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)

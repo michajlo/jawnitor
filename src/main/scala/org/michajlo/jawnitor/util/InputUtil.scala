@@ -21,7 +21,7 @@ object InputUtil {
     if (file.exists()) {
       return Some(new FileReader(file))
     } else {
-      val cpResourceStream = getClass.getResourceAsStream(location)
+      val cpResourceStream = getClass.getClassLoader.getResourceAsStream(location)
       if (cpResourceStream != null) {
         Some(new InputStreamReader(cpResourceStream))
       } else {
